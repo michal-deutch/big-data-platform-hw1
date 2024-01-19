@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS University_Criteria (
     influence_rank INT,
     citations_number INT,
 
-    PRIMARY KEY(year, country, university_name)
+    PRIMARY KEY(university_name, year)
 );
 
 CREATE TABLE IF NOT EXISTS Country_Statistics (
