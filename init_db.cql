@@ -10,11 +10,12 @@ CREATE TABLE IF NOT EXISTS University_World_Rankings (
     university_name TEXT,
     country TEXT,
     shanghai_rank INT,
-    shanghai_total_score FLOAT, // used to determine rank
+    shanghai_total_score FLOAT,
     cwur_rank INT,
+    cwur_total_score FLOAT,
     times_rank INT,
-    times_total_score FLOAT, // used to determine rank
-    PRIMARY KEY(year, country, university_name)
+    times_total_score FLOAT,
+    PRIMARY KEY(country, year , university_name)
 );
 
 CREATE TABLE IF NOT EXISTS University_Criteria (
@@ -23,31 +24,24 @@ CREATE TABLE IF NOT EXISTS University_Criteria (
     country TEXT,
 
     // Shanghai Criteria
-    alumni_award_score FLOAT,
-    staff_award_score FLOAT,
-    hici_score FLOAT,
-    ns_score FLOAT,
-    pub_score FLOAT,
-    pcp_score FLOAT,
+    shanghai_alumni_award_score FLOAT,
+    shanghai_staff_award_score FLOAT,
+    shanghai_hici_score FLOAT, // Highly cited researchers in 21 broad subject categories
+    shanghai_ns_score FLOAT, // Papers published in Nature and Science
+    shanghai_pub_score FLOAT, // Papers indexed in Science Citation Index-expanded 
+    shanghai_pcp_score FLOAT, // Per capita academic performance of an institution.
 
     // Times Criteria
-    teaching_score FLOAT,
-    international_score FLOAT,
-    research_score FLOAT,
-    citations_influence_score FLOAT,
-    income_score FLOAT,
-    num_students INT,
-    student_staff_ratio FLOAT,
-    international_students_percentage INT,
-    female_male_ratio FLOAT,
+    times_teaching_score FLOAT,
+    times_research_score FLOAT,
+    times_citations_influence_score FLOAT,
 
     // CWUR Criteria
-    quality_of_education_rank INT,
-    alumni_employment_rank INT,
-    quality_of_faculty_rank INT,
-    publications_rank INT,
-    influence_rank INT,
-    citations_number INT,
+    cwur_alumni_employment_rank INT,
+    cwur_publications_rank INT,
+    cwur_influnce_jurnal_rank INT,
+    cwur_citation_rank INT,
+    cwur_patents_rank INT,
 
     PRIMARY KEY(university_name, year)
 );
