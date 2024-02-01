@@ -111,7 +111,7 @@ def vis_get_all_schools_rank_and_scores(countries,start_year,end_year,by_country
     if by_country_year is True:
         for country in keys_c:
             print(country)
-            grouped_y = df4.groupby("year")
+            grouped_y = grouped_c.get_group(country).groupby("year")
             keys_y = grouped_y.groups.keys()
             for year in keys_y:
                 df = grouped_y.get_group(year)[
@@ -123,7 +123,7 @@ def vis_get_all_schools_rank_and_scores(countries,start_year,end_year,by_country
     if by_country_institution is True:
         for country in keys_c:
             print(country)
-            grouped_i = df4.groupby("university_name")
+            grouped_i = grouped_c.get_group(country).groupby("university_name")
             keys_i = grouped_i.groups.keys()
             for uni in keys_i:
                 df = grouped_i.get_group(uni)[
@@ -337,13 +337,16 @@ def corr_btw_criteria_and_rank (plt_path,cr,rank_type,year_range):
 
 # vis_get_number_of_ranked_school_by_country_and_year(["Israel","USA"], 2012, 2015,True,False)
 
-# vis_get_best_rank_of_ranked_school_by_country_and_year(["Israel","USA"], 2012, 2015,True,True)
+vis_get_best_rank_of_ranked_school_by_country_and_year(["Israel","USA"], 2012, 2015,True,False)
 
 # vis_get_all_times_stats(["Israel","USA"],False)
 
 # vis_get_all_schools_rank_and_scores(["Israel","USA"], 2012, 2015,True,False)
 
 # vis_get_criteria_trend(r"C:\Users\Ofri\Desktop\school\MSc\Big_Data\big-data-platform-hw1\trend1.jpeg",["Harvard University","University of Zurich","Kyoto University"], "shanghai_staff_award_score", (2011,2016))
+
+# vis_get_criteria_trend(r"C:\Users\Ofri\Desktop\school\MSc\Big_Data\big-data-platform-hw1\trend1.jpeg",["Harvard University","University of Zurich","Kyoto University"], "shanghai_staff_award_score", (2011,2016))
+
 
 # vis_get_school_trends(r"C:\Users\Ofri\Desktop\school\MSc\Big_Data\big-data-platform-hw1\trend2.jpeg","Harvard University", ["times_teaching_score","times_research_score"],(2011,2016))
 
